@@ -36,6 +36,25 @@ dependencies: [
   ],
 ```
 
+NOTE: When you enter the import Raylib line in your source code to import the Raylib libraries, you may get an error that RaylibC is missing. To correct this error, you will also need to set the target executable by adding the following to your `Package.swift` file:
+
+```swift
+targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
+        .executableTarget(
+            name: "MyGame",
+            dependencies: [
+                .product(name: "Raylib", package: "raylib")
+            ]
+        ),
+        .testTarget(
+            name: "MyGameTests",
+            dependencies: ["MyGame"]
+        ),
+    ],
+```
+
 On Windows and macOS you only need Swift. For linux, see [install required libraries](https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux#install-required-libraries).
 
   > Note: `.branch("master")` is required, you cannot use tags, commits, or versions. Swift doesn't allow unsafe build flags for specific versions and build flags are required to build Raylib, so you must use master at this time or you will get an error from SwiftPM.
