@@ -32,7 +32,7 @@ $ swift package init --type executable
 ```swift
 dependencies: [
     .package(url: "https://github.com/andyanon6/Raylib.git",
-             from: "4.0.0")
+             branch: "master")
   ],
 ```
 
