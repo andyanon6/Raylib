@@ -30,7 +30,10 @@ $ swift package init --type executable
 **2.** Edit the newly created `Package.swift` to add Raylib to the dependencies array:
 
 ```swift
-.package(url: "https://github.com/STREGAsGate/Raylib.git", branch: "master")
+dependencies: [
+    .package(url: "https://github.com/andyanon6/Raylib.git",
+             from: "4.0.0")
+  ],
 ```
 
 On Windows and macOS you only need Swift. For linux, see [install required libraries](https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux#install-required-libraries).
